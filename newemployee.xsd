@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Company">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Employee" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+						
+							<xs:element name="Employee_id" type="xs:inteer"></xs:element>
+							<xs:element name="Employee_fname" type="xs:string"></xs:element>
+							<xs:element name="Employee_lname" type="xs:string"></xs:element>
+							<xs:element name="Employee_salary" type="xs:integer"></xs:element>
+							<xs:element name="Employee_mob" type="check"></xs:element>
+							<xs:element name="Employee_email" type="mail"></xs:element>
+						
+							
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>		
+		</xs:complexType>
+	</xs:element>
+
+	
+   <xs:simpleType name="mail" > 
+   <xs:restriction base="em:string"> 
+   <xs:pattern value="[^@]+@[^\.]+\..+"/> 
+    </xs:restriction> 
+    </xs:simpleType>
+  
+  	<xs:simpleType name = "check">
+    <xs:restriction base = "xs:integer">
+    <xs:totalDigits value = "10"></xs:totalDigits>
+    </xs:restriction>
+    </xs:simpleType>
+
+
+
+</xs:schema>

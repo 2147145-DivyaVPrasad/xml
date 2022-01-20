@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Company xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="newemployee.xsd">
+
+  <Employee>
+    <Employee_id>717</Employee_id>
+    <Employee_fname>Samarth</Employee_fname>
+    <Employee_lname>Malhotra</Employee_lname>
+    <Employee_salary>900001</Employee_salary>
+    <Employee_mob>9787878787</Employee_mob>
+    <Employee_email>samarth@gmail.com</Employee_email>
+  </Employee>
+  
+ <Employee>
+    <Employee_id>707</Employee_id>
+    <Employee_fname>Tanmay</Employee_fname>
+    <Employee_lname>Singh</Employee_lname>
+    <Employee_salary>100000</Employee_salary>
+    <Employee_mob>8893452487</Employee_mob>
+    <Employee_email>tanmay@gmail.com</Employee_email>
+  </Employee>
+
+   <Employee>
+    <Employee_id>177</Employee_id>
+    <Employee_fname>Sneha</Employee_fname>
+    <Employee_lname>Srivastav</Employee_lname>
+    <Employee_salary>700000</Employee_salary>
+    <Employee_mob>9837272272</Employee_mob>
+    <Employee_email>sneha123@gmail.com</Employee_email>
+  </Employee>
+
+ 
+</Company>

@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body onload="loadXML()">
+<h1 align = center style="color: aliceblue; font-family:Georgia, 'Times New Roman', Times, serif ;letter-spacing: .092857em;">EMPLOYEE DATABASE</h1>   
+<style>
+
+body{
+background: #8E2DE2;  
+background: -webkit-linear-gradient(to left, #4A00E0, #8E2DE2);  
+background: linear-gradient(to left, #4A00E0, #8E2DE2); 
+}
+
+
+
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+
+table {
+  width: 900px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+th,
+td {
+  padding: 15px;
+  background-color: rgba(255,255,255,0.2);
+  color: #fff;
+  text-align: center;
+}
+
+th {
+  text-align: center;
+}
+
+th{
+
+
+    background: #4d1ea5   ;  
+   border: blueviolet solid;   
+}
+
+.button-30 {
+  align-items: center;
+  appearance: none;
+  
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.button-30:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.button-30:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-30:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+
+*{box-sizing: border-box;}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+
+/* The popup form - hidden by default */
+.form-popup{
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 500px;
+  max-height: 500px;
+  
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: blueviolet;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: #2a0845;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+.material-icons{
+                  font-size: 20px;
+                  font-family: 'Times New Roman', Times, serif;
+              }
+
+              .material-icons:hover{
+                  cursor: pointer;
+                  color:#2a0845;
+              }
+
+</style> 
+
+<div class="container">
+   
+    <table id="table"></table>
+
+<button class="button-30" role="button" style=" margin:auto; display:block; margin-top: 15px; font-family: Georgia, 'Times New Roman', Times, serif; text-decoration: none;" onclick="openForm()" >ADD EMPLOYEE</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="form-popup" id="form_popup">
+  <form  class="form-container" id="addRecordForm" >
+    <label for="id">ID</label>
+    <input w3-input w3-border type="text" id="Employee_id" name="Employee_id" placeholder="id..">
+    <label for="fname">First Name</label>
+    <input type="text" id="Employee_fname" name="firstname" placeholder=" name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="Employee_lname" name="lastname" placeholder=" last name..">
+    <label for="sal">Salary</label>
+    <input type="text" id="Employee_salary" name="salary" placeholder="salary..">
+    <label for="mob">Mobile number</label>
+    <input type="text" id="Employee_mob" name="lastname" placeholder="mobile no..">
+    <label for="eid">Email ID</label>
+    <input type="text" id="Employee_email" name="email_id" placeholder="email id..">
+    
+
+    
+
+    <button type="submit" class="btn"  onclick="addNewRecord()">ADD</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+  <script src="employeejavascript.js"></script>
+</div>
+
+  
+
+
+</body>
+</html>
